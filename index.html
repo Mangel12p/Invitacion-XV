@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mis XV Años | Alejandra</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- =========================
+         PORTADA
+    ========================== -->
+
+    <section id="inicio" class="portada">
+
+        <div class="disco disco1"></div>
+
+        <div class="globos">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="portada-contenido">
+
+            <p class="pequeno">MIS XV AÑOS</p>
+
+            <h1>ALEJANDRA</h1>
+
+            <div class="numero">15</div>
+
+            <p class="dale">Dale play</p>
+
+            <button class="boton-play" onclick="entrar()">
+                ▶
+            </button>
+
+            <p class="mensaje-portada">
+                Una noche para recordar
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         INVITACIÓN
+    ========================== -->
+
+    <main id="invitacion" class="oculto">
+
+        <!-- PRESENTACIÓN -->
+
+        <section class="hero">
+
+            <p class="frase">
+                Con la bendición de Dios y de mis padres
+            </p>
+
+            <p class="invitacion-texto">
+                tengo el honor de invitarte a celebrar
+            </p>
+
+            <h2>mis XV años</h2>
+
+            <div class="nombre">
+                ALEJANDRA
+            </div>
+
+            <div class="edad">
+                15
+            </div>
+
+            <p class="fecha">
+
+                <strong>14</strong>
+
+                NOVIEMBRE
+
+                <span>2026</span>
+
+            </p>
+
+            <p class="te-esperamos">
+                Te esperamos
+            </p>
+
+        </section>
+
+
+        <!-- FOTO -->
+
+        <section class="foto-seccion">
+
+            <div class="foto-marco">
+
+                <img src="img/alejandra.jpg" alt="Alejandra">
+
+            </div>
+
+            <div class="estrellita">
+                ✦
+            </div>
+
+        </section>
+
+
+        <!-- CUENTA REGRESIVA -->
+
+        <section class="cuenta">
+
+            <p class="faltan">
+                Faltan...
+            </p>
+
+            <div class="contador">
+
+                <div>
+                    <span id="dias">00</span>
+                    <small>Días</small>
+                </div>
+
+                <div>
+                    <span id="horas">00</span>
+                    <small>Horas</small>
+                </div>
+
+                <div>
+                    <span id="minutos">00</span>
+                    <small>Min</small>
+                </div>
+
+                <div>
+                    <span id="segundos">00</span>
+                    <small>Seg</small>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- RECEPCIÓN -->
+
+        <section class="recepcion">
+
+            <div class="copas">
+                🥂
+            </div>
+
+            <h2>
+                Recepción
+            </h2>
+
+            <p class="hora">
+                21:00 hrs
+            </p>
+
+            <p>
+                Salón de eventos
+            </p>
+
+            <a
+                class="boton"
+                href="https://share.google/tTaFnBI7Nn1UqDrf6"
+                target="_blank">
+
+                Ver ubicación
+
+            </a>
+
+        </section>
+
+
+        <!-- VESTIMENTA -->
+
+        <section class="dresscode">
+
+            <div class="adorno">
+                ♡
+            </div>
+
+            <h2>
+                Vestimenta
+            </h2>
+
+            <div class="vestido">
+                👗
+            </div>
+
+            <h3>
+                Etiqueta
+            </h3>
+
+            <p>
+                Te invitamos a vestir de etiqueta
+                para compartir juntos esta noche tan especial.
+            </p>
+
+            <div class="disco-grande"></div>
+
+        </section>
+
+
+        <!-- CONFIRMAR ASISTENCIA -->
+
+        <section class="confirmacion">
+
+            <div class="icono">
+                💌
+            </div>
+
+            <h2>
+                CONFIRMAR ASISTENCIA
+            </h2>
+
+            <p>
+                Será un honor contar con tu presencia
+                en esta noche tan especial.
+            </p>
+
+            <a
+                class="boton whatsapp"
+                href="#"
+                onclick="confirmarAsistencia()">
+
+                Confirmar asistencia
+
+            </a>
+
+        </section>
+
+
+        <!-- FINAL -->
+
+        <section class="final">
+
+            <div class="disco-final"></div>
+
+            <h2>
+                Te esperamos
+            </h2>
+
+            <p>
+                Gracias por ser parte de este momento
+                tan especial.
+            </p>
+
+            <div class="corazon">
+                ♡
+            </div>
+
+            <h3>
+                ALEJANDRA
+            </h3>
+
+        </section>
+
+    </main>
+
+
+    <!-- MÚSICA -->
+
+    <audio id="musica" loop>
+        <source src="musica.mp3" type="audio/mpeg">
+    </audio>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
