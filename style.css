@@ -942,4 +942,14 @@ a {
         transform: none;
     }
 }
+.imagen-portada {
+    display: block;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #b99a62;
+    margin: 0 auto 20px;
+    box-shadow: 0 8px 25px rgba(185, 105, 139, 0.2);
+}
 
