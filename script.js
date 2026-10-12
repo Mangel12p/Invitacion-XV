@@ -1,114 +1,133 @@
-// ================================
-// ENTRAR A LA INVITACIÓN
-// ================================
 
+// ========================================
+// INVITACIÓN XV AÑOS DE ALEJANDRA
+// ========================================
+
+// ABRIR INVITACIÓN Y REPRODUCIR MÚSICA
 function entrar() {
-
     const portada = document.getElementById("inicio");
     const invitacion = document.getElementById("invitacion");
     const musica = document.getElementById("musica");
 
-    portada.style.display = "none";
-
+    portada.classList.add("portada-cerrada");
     invitacion.classList.remove("oculto");
 
-    // Intentar reproducir la música
-    musica.play().catch(() => {
-        console.log("El navegador bloqueó el audio.");
-    });
+    // La música comienza cuando la persona toca el botón.
+    if (musica) {
+        musica.play().catch(() => {
+            console.info("El navegador puede bloquear la reproducción de audio.");
+        });
+    }
 
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
+    window.setTimeout(() => {
+        invitacion.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    }, 100);
 }
 
-
-// ================================
 // CUENTA REGRESIVA
-// ================================
-
-// 14 de noviembre de 2026
-const fechaEvento = new Date(
-    "November 14, 2026 21:00:00"
-).getTime();
-
+// Fecha del evento: 14 de noviembre de 2026, a las 9:00 p. m.
+const fechaEvento = new Date(2026, 10, 14, 21, 0, 0).getTime();
 
 function actualizarContador() {
+    const dias = document.getElementById("dias");
+    const horas = document.getElementById("horas");
+    const minutos = document.getElementById("minutos");
+    const segundos = document.getElementById("segundos");
+    const mensaje = document.getElementById("mensaje-contador");
 
-    const ahora = new Date().getTime();
+    if (!dias || !horas || !minutos || !segundos) {
+        return;
+    }
 
-    const diferencia = fechaEvento - ahora;
+    const diferencia = fechaEvento - Date.now();
 
-
-    // Si ya llegó la fecha
     if (diferencia <= 0) {
+        dias.textContent = "00";
+        horas.textContent = "00";
+        minutos.textContent = "00";
+        segundos.textContent = "00";
 
-        document.getElementById("dias").innerHTML = "00";
-        document.getElementById("horas").innerHTML = "00";
-        document.getElementById("minutos").innerHTML = "00";
-        document.getElementById("segundos").innerHTML = "00";
+        if (mensaje) {
+            mensaje.textContent =
+                "¡Hoy celebramos este momento tan especial!";
+        }
 
         return;
     }
 
+    const total = Math.floor(diferencia / 1000);
 
-    const dias = Math.floor(
-        diferencia / (1000 * 60 * 60 * 24)
-    );
+    dias.textContent = String(
+        Math.floor(total / 86400)
+    ).padStart(2, "0");
 
-    const horas = Math.floor(
-        (diferencia / (1000 * 60 * 60)) % 24
-    );
+    horas.textContent = String(
+        Math.floor((total % 86400) / 3600)
+    ).padStart(2, "0");
 
-    const minutos = Math.floor(
-        (diferencia / (1000 * 60)) % 60
-    );
+    minutos.textContent = String(
+        Math.floor((total % 3600) / 60)
+    ).padStart(2, "0");
 
-    const segundos = Math.floor(
-        (diferencia / 1000) % 60
-    );
-
-
-    document.getElementById("dias").innerHTML =
-        String(dias).padStart(2, "0");
-
-    document.getElementById("horas").innerHTML =
-        String(horas).padStart(2, "0");
-
-    document.getElementById("minutos").innerHTML =
-        String(minutos).padStart(2, "0");
-
-    document.getElementById("segundos").innerHTML =
-        String(segundos).padStart(2, "0");
+    segundos.textContent = String(
+        total % 60
+    ).padStart(2, "0");
 }
 
-
-// Iniciar contador
+// Actualizar el contador cada segundo.
 actualizarContador();
-
 setInterval(actualizarContador, 1000);
 
-
-// ================================
-// CONFIRMAR ASISTENCIA
-// ================================
-
+// CONFIRMAR ASISTENCIA POR WHATSAPP
 function confirmarAsistencia() {
-
-    // AQUÍ DESPUÉS PONDREMOS
-    // EL NÚMERO DE WHATSAPP.
-
-    const telefono = "5210000000000";
+    // Número con lada internacional de México.
+    // Cámbialo si el número de confirmación es otro.
+    const telefono = "529615480094";
 
     const mensaje =
-        "Hola, confirmo mi asistencia a los XV años de Alejandra.";
+        "¡Hola! 💗✨ Me comunico para confirmar mi asistencia " +
+        "a los XV años de Alejandra, este 14 de noviembre de 2026. " +
+        "Muchas gracias por la invitación. 👑🌸 " +
+        "¡Nos vemos para celebrar esta noche tan especial!";
 
     const url =
-        "https://wa.me/" +
-        telefono +
-        "?text=" +
-        encodeURIComponent(mensaje);
+        `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
 
-    window.open(url, "_blank");
+    window.open(url, "_blank", "noopener,noreferrer");
 }
+
+// ANIMACIÓN DE LAS SECCIONES AL DESPLAZARSE
+document.addEventListener("DOMContentLoaded", () => {
+    const secciones = document.querySelectorAll(
+        ".foto-seccion, .cuenta, .recepcion, " +
+        ".dresscode, .confirmacion, .final"
+    );
+
+    // Alternativa para navegadores sin IntersectionObserver.
+    if (!("IntersectionObserver" in window)) {
+        secciones.forEach((seccion) => {
+            seccion.classList.add("visible");
+        });
+        return;
+    }
+
+    const observador = new IntersectionObserver(
+        (entradas, observer) => {
+            entradas.forEach((entrada) => {
+                if (entrada.isIntersecting) {
+                    entrada.target.classList.add("visible");
+                    observer.unobserve(entrada.target);
+                }
+            });
+        },
+        { threshold: 0.12 }
+    );
+
+    secciones.forEach((seccion) => {
+        seccion.classList.add("revelar");
+        observador.observe(seccion);
+    });
+});
