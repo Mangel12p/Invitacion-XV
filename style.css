@@ -1,955 +1,517 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
 :root {
-    --rosa: #d98bab;
-    --rosa-oscuro: #b9698b;
-    --rosa-claro: #faeaf1;
-    --marfil: #fffaf7;
+    --rosa: #d8a0ad;
+    --rosa-claro: #f8e8eb;
+    --rosa-fondo: #fff8f8;
+    --vino: #784b58;
     --dorado: #b99a62;
-    --tinta: #51434a;
-    --gris: #897d83;
-    --serif: 'Cormorant Garamond', Georgia, serif;
-    --sans: 'Montserrat', Arial, sans-serif;
+    --texto: #59454a;
+    --blanco: #ffffff;
 }
 
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 20px;
 }
 
 body {
-    background: var(--marfil);
-    color: var(--tinta);
-    font-family: var(--sans);
-    overflow-x: hidden;
-    line-height: 1.65;
+    background: var(--rosa-fondo);
+    color: var(--texto);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    line-height: 1.8;
 }
 
-button, a {
+button,
+a {
     -webkit-tap-highlight-color: transparent;
 }
 
-button {
-    font: inherit;
-}
-
 a {
-    color: inherit;
+    text-decoration: none;
 }
 
 .oculto {
     display: none !important;
 }
 
-.etiqueta {
-    color: var(--dorado);
-    font-size: .68rem;
-    font-weight: 600;
-    letter-spacing: .22em;
-    line-height: 1.8;
-}
-
-/* BRILLOS DECORATIVOS */
-
-.brillo {
-    position: fixed;
-    z-index: -1;
-    width: 260px;
-    height: 260px;
-    border-radius: 50%;
-    filter: blur(75px);
-    opacity: .2;
-    pointer-events: none;
-}
-
-.brillo-uno {
-    top: 15%;
-    left: -160px;
-    background: #edb4cb;
-}
-
-.brillo-dos {
-    right: -160px;
-    bottom: 10%;
-    background: #ead7b7;
-}
-
 /* PORTADA */
 
 .portada {
-    min-height: 100vh;
-    min-height: 100svh;
-    padding: 70px 22px 56px;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
-    isolation: isolate;
-    overflow: hidden;
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: 24px;
+    overflow-y: auto;
     text-align: center;
     background:
-        radial-gradient(
-            ellipse at 50% 45%,
-            rgba(255,255,255,.97) 0%,
-            rgba(255,250,247,.94) 48%,
-            transparent 75%
-        ),
-        linear-gradient(145deg, #fffaf7, #f8e5ed 60%, #f5e8d7);
-    transition: opacity .7s ease, transform .7s ease;
+        radial-gradient(ellipse at top, rgba(255,255,255,.95), transparent 70%),
+        linear-gradient(145deg, #f8e5e9, #fffaf5, #f0d8df);
 }
 
 .portada::before,
 .portada::after {
-    content: "";
+    content: "✧";
     position: absolute;
-    inset: 18px;
-    border: 1px solid rgba(185,154,98,.52);
-    pointer-events: none;
-}
-
-.portada::after {
-    inset: 25px;
-    border-color: rgba(217,139,171,.3);
-}
-
-.imagen-portada {
-    display: block;
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 3px solid var(--dorado);
-    margin: 0 auto 20px;
-    box-shadow: 0 8px 25px rgba(185,105,139,.2);
-    position: relative;
-    z-index: 3;
-}
-
-.marco-portada {
-    position: absolute;
-    width: min(78vw, 440px);
-    aspect-ratio: 1;
-    border: 1px solid rgba(185,154,98,.26);
-    border-radius: 50%;
-    box-shadow:
-        0 0 0 24px rgba(255,255,255,.16),
-        0 0 0 25px rgba(185,154,98,.12);
-    pointer-events: none;
-}
-
-.portada-contenido {
-    position: relative;
-    z-index: 3;
-    max-width: 700px;
-}
-
-.sobrelinea {
     color: var(--dorado);
-    letter-spacing: .22em;
-    font-size: .65rem;
-    margin-bottom: 28px;
-}
-
-.pequeno {
-    color: var(--gris);
-    letter-spacing: .42em;
-    font-size: .8rem;
-    margin-bottom: 12px;
-}
-
-.portada h1 {
-    font-family: var(--serif);
-    font-size: clamp(4rem, 13vw, 8.7rem);
-    line-height: .9;
-    font-weight: 500;
-    color: var(--rosa-oscuro);
-    letter-spacing: -.035em;
-}
-
-.separador {
-    color: var(--dorado);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    margin: 22px 0 0;
-}
-
-.separador span {
-    display: block;
-    width: 48px;
-    height: 1px;
-    background: var(--dorado);
+    font-size: 42px;
     opacity: .7;
 }
 
-.numero {
-    font-family: var(--serif);
-    font-size: clamp(4rem, 9vw, 6rem);
-    line-height: 1.05;
+.portada::before {
+    top: 8%;
+    left: 10%;
+}
+
+.portada::after {
+    right: 10%;
+    bottom: 8%;
+}
+
+.portada-contenido {
+    width: min(100%, 500px);
+    padding: 30px 20px;
+    border: 1px solid rgba(185, 154, 98, .65);
+    outline: 1px solid rgba(185, 154, 98, .35);
+    outline-offset: 7px;
+    background: rgba(255,255,255,.35);
+}
+
+.texto-superior,
+.etiqueta {
     color: var(--dorado);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 4px;
 }
 
-.dale {
-    margin-top: 25px;
-    color: var(--gris);
-    font-size: .78rem;
-    letter-spacing: .04em;
+.flor {
+    margin: 12px 0;
+    color: var(--rosa);
+    font-size: 43px;
 }
 
-.boton-play {
-    width: 54px;
-    height: 54px;
-    margin-top: 14px;
+.mis-xv {
+    color: var(--vino);
+    font-size: 12px;
+    letter-spacing: 6px;
+}
+
+.portada h1,
+.nombre {
+    color: var(--vino);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(54px, 12vw, 82px);
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.frase-portada {
+    margin-top: 10px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-style: italic;
+}
+
+.boton-corazon {
+    display: block;
+    width: 76px;
+    height: 76px;
+    margin: 28px auto 12px;
+    border: 1px solid var(--dorado);
     border-radius: 50%;
-    border: 1px solid rgba(185,154,98,.8);
-    background: rgba(255,255,255,.85);
-    color: var(--rosa-oscuro);
-    font-size: 2rem;
-    line-height: 1;
+    color: var(--vino);
+    background: rgba(255,255,255,.8);
+    font-size: 43px;
     cursor: pointer;
-    box-shadow: 0 8px 30px rgba(156,92,119,.14);
-    transition: transform .25s ease, background .25s ease;
-    position: relative;
-    z-index: 10;
+    box-shadow: 0 5px 20px rgba(120,75,88,.12);
+    transition: transform .25s, background .25s;
+    touch-action: manipulation;
 }
 
-.boton-play:hover {
-    transform: scale(1.07);
+.boton-corazon:hover {
+    transform: scale(1.08);
     background: white;
 }
 
-.boton-play:focus-visible,
-.boton:focus-visible {
-    outline: 3px solid var(--dorado);
-    outline-offset: 4px;
+.texto-abrir {
+    font-size: 11px;
+    letter-spacing: 1px;
 }
 
-.mensaje-portada {
-    margin-top: 20px;
-    color: var(--gris);
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 1.25rem;
-}
-
-.portada-pie {
-    position: absolute;
-    z-index: 3;
-    bottom: 35px;
-    color: var(--dorado);
-    letter-spacing: .24em;
-    font-size: .68rem;
-}
-
-.portada-cerrada {
-    opacity: 0;
-    transform: scale(1.04);
-    pointer-events: none;
-    display: none !important;
-}
-
-/* DISCOS Y GLOBOS */
-
-.disco {
-    width: 135px;
-    height: 135px;
-    border-radius: 50%;
-    background: repeating-conic-gradient(
-        #bca8ae 0deg 5deg,
-        #e8dce0 5deg 10deg
-    );
-    box-shadow:
-        inset 0 0 18px rgba(70,45,55,.35),
-        0 12px 32px rgba(70,45,55,.13);
-    position: absolute;
-    opacity: .38;
-    pointer-events: none;
-}
-
-.disco::after {
-    content: "";
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background: #f9edf1;
-    border: 1px solid #c8a6b4;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.disco1 {
-    top: 7%;
-    right: -32px;
-    transform: rotate(-15deg);
-}
-
-.globos {
-    position: absolute;
-    right: 7%;
-    bottom: 11%;
-    display: flex;
-    gap: 8px;
-    transform: rotate(-13deg);
-    opacity: .45;
-    pointer-events: none;
-}
-
-.globos span {
+.fecha-portada {
     display: block;
-    width: 24px;
-    height: 34px;
-    background: linear-gradient(135deg, #f6d8e4, #d98bab);
-    border-radius: 50% 50% 46% 46%;
+    margin-top: 24px;
+    color: var(--vino);
+    font-size: 12px;
+    letter-spacing: 4px;
 }
 
-.globos span:nth-child(2) {
-    transform: translateY(-19px);
-    background: linear-gradient(135deg, #fff, #d9c6cf);
+/* CONTENIDO PRINCIPAL */
+
+.invitacion {
+    display: block;
+    width: 100%;
+    max-width: 900px;
+    min-height: 100vh;
+    margin: 0 auto;
+    overflow: hidden;
+    background: var(--rosa-fondo);
+    animation: aparecer .8s ease;
 }
 
-.globos span:nth-child(3) {
-    transform: translateY(5px);
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
-
-.globos span:nth-child(4) {
-    transform: translateY(-12px);
-    background: linear-gradient(135deg, #f6e8c9, #b99a62);
-}
-
-/* PRESENTACIÓN */
 
 .hero {
     position: relative;
+    padding: 85px 22px 65px;
     text-align: center;
-    min-height: 94vh;
-    min-height: 94svh;
-    padding: 95px 22px 80px;
-    overflow: hidden;
-    background:
-        radial-gradient(circle at 10% 15%, rgba(217,139,171,.18) 0 1px, transparent 2px),
-        radial-gradient(circle at 85% 70%, rgba(185,154,98,.2) 0 1px, transparent 2px),
-        linear-gradient(180deg, #fffaf7, #fff 48%, #fff8fb);
-    background-size: 38px 38px, 48px 48px, auto;
-}
-
-.hero::before {
-    content: "";
-    position: absolute;
-    inset: 18px;
-    border: 1px solid rgba(185,154,98,.3);
-    pointer-events: none;
-}
-
-.ornamento {
-    color: var(--dorado);
-    letter-spacing: .2em;
-}
-
-.ornamento.superior {
-    margin-bottom: 30px;
+    background: linear-gradient(180deg, #f8e6e9, #fff8f8);
 }
 
 .frase {
-    font-family: var(--serif);
-    font-size: clamp(1.4rem, 4vw, 2rem);
-    line-height: 1.3;
+    max-width: 540px;
+    margin: 25px auto 12px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(22px, 4vw, 30px);
+    font-style: italic;
+    line-height: 1.5;
 }
 
 .invitacion-texto {
-    margin-top: 12px;
-    color: var(--gris);
-    font-size: .88rem;
+    max-width: 500px;
+    margin: 0 auto;
+    font-size: 13px;
 }
 
-.hero h2 {
-    font-family: var(--serif);
-    font-size: clamp(2.2rem, 6vw, 3.6rem);
-    font-weight: 400;
-    margin-top: 8px;
-    color: var(--tinta);
-}
-
-.nombre {
-    margin-top: 18px;
-    font-family: var(--serif);
-    font-size: clamp(3.5rem, 12vw, 7rem);
-    line-height: 1.05;
-    font-weight: 500;
-    color: var(--rosa-oscuro);
-}
-
-.flor-linea {
+.adorno {
+    margin: 22px 0 4px;
     color: var(--dorado);
-    font-size: 2rem;
-    margin: 10px 0 0;
+    font-size: 25px;
+    letter-spacing: 8px;
 }
 
-.edad {
-    font-family: var(--serif);
+.titulo-xv {
+    margin-top: 5px;
     color: var(--dorado);
-    font-size: 5.4rem;
-    line-height: 1;
+    font-size: 13px;
+    letter-spacing: 7px;
 }
 
-.frase-secundaria {
-    max-width: 440px;
-    margin: 18px auto 0;
-    color: var(--gris);
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 1.25rem;
+.fecha-grande {
+    margin-top: 25px;
+    color: var(--vino);
+    font-size: 12px;
+    letter-spacing: 3px;
 }
 
-.fecha {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 17px;
-    margin: 32px auto 0;
-    color: var(--tinta);
-}
-
-.fecha strong {
-    font-family: var(--serif);
-    font-size: 5rem;
-    line-height: 1;
-    font-weight: 400;
-    color: var(--rosa-oscuro);
-}
-
-.fecha-mes {
-    text-align: left;
-    font-size: .68rem;
-    line-height: 1.7;
-    letter-spacing: .15em;
-}
-
-.fecha-mes b {
-    font-size: .9rem;
-    font-weight: 500;
-}
-
-.fecha-anio {
-    align-self: stretch;
-    display: flex;
-    align-items: center;
-    padding-left: 16px;
-    border-left: 1px solid var(--dorado);
-    color: var(--gris);
-    letter-spacing: .12em;
-}
-
-.te-esperamos {
-    margin-top: 28px;
-    font-family: var(--serif);
-    font-size: 2rem;
-    font-style: italic;
-    color: var(--rosa-oscuro);
-}
-
-.ornamento.inferior {
-    margin-top: 22px;
-}
-
-/* FOTOGRAFÍA */
+/* FOTOGRAFÍAS */
 
 .foto-seccion {
-    padding: 85px 20px 75px;
+    padding: 55px 20px 45px;
     text-align: center;
-    background: #fff;
-}
-
-.foto-seccion .etiqueta {
-    margin-bottom: 25px;
 }
 
 .foto-marco {
-    width: min(84vw, 390px);
-    margin: 0 auto;
-    padding: 10px;
+    width: min(100%, 480px);
+    margin: 25px auto 0;
+    padding: 9px;
+    border: 1px solid var(--dorado);
     background: #fff;
-    border: 1px solid rgba(185,154,98,.65);
-    box-shadow: 0 18px 55px rgba(100,65,80,.12);
-    transform: rotate(-1.5deg);
+    box-shadow: 0 12px 35px rgba(120, 75, 88, .12);
 }
 
 .foto-borde {
-    padding: 5px;
-    border: 1px solid rgba(217,139,171,.35);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #ead9dc;
+    background: #f7e9ec;
 }
 
 .foto-marco img {
     display: block;
     width: 100%;
-    max-height: 570px;
-    object-fit: cover;
+    height: auto;
+    max-height: 650px;
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+.foto-principal img {
+    max-height: 650px;
+}
+
+.foto-bebe {
+    width: min(100%, 400px);
+}
+
+.foto-bebe img {
+    max-height: 520px;
 }
 
 .foto-pie {
-    margin-top: 28px;
-    font-family: var(--serif);
+    margin-top: 20px;
+    color: var(--vino);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 23px;
     font-style: italic;
-    font-size: 1.5rem;
-    color: var(--rosa-oscuro);
+}
+
+.mensaje-error {
+    display: none;
+    padding: 20px;
+    color: #8b3445;
+    font-size: 13px;
+}
+
+.foto-error .mensaje-error {
+    display: block;
 }
 
 /* CUENTA REGRESIVA */
 
-.cuenta {
-    padding: 78px 20px 85px;
+.cuenta-seccion {
+    padding: 55px 18px;
     text-align: center;
-    background: linear-gradient(135deg, #fbecf2, #fffaf7 70%);
+    background: #f6e5e8;
 }
 
-.cuenta h2 {
-    margin-top: 8px;
-    font-family: var(--serif);
-    font-size: clamp(2.3rem, 6vw, 3.5rem);
-    font-weight: 400;
+.cuenta-seccion h2,
+.evento h2,
+.detalles h2,
+.confirmacion h2,
+.footer h2 {
+    margin: 10px 0 20px;
+    color: var(--vino);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(31px, 6vw, 43px);
+    font-weight: 500;
+    line-height: 1.25;
 }
 
-.faltan {
-    margin-top: 18px;
-    color: var(--rosa-oscuro);
-    font-family: var(--serif);
-    font-size: 1.7rem;
-    font-style: italic;
-}
-
-.contador {
+.cuenta-regresiva {
     display: flex;
     justify-content: center;
-    gap: clamp(9px, 3vw, 25px);
-    margin-top: 25px;
+    gap: clamp(8px, 3vw, 22px);
+    margin: 30px auto;
 }
 
-.contador div {
-    width: clamp(62px, 15vw, 105px);
-    padding: 15px 4px 12px;
-    background: rgba(255,255,255,.72);
-    border: 1px solid rgba(185,154,98,.38);
+.tiempo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: clamp(62px, 15vw, 100px);
+    min-height: 85px;
+    padding: 10px 4px;
+    border: 1px solid rgba(185,154,98,.6);
+    background: rgba(255,255,255,.6);
 }
 
-.contador span {
-    display: block;
-    font-family: var(--serif);
-    font-size: clamp(1.8rem, 6vw, 3rem);
-    color: var(--tinta);
+.tiempo span {
+    color: var(--vino);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(27px, 6vw, 40px);
     line-height: 1.2;
-    font-variant-numeric: tabular-nums;
 }
 
-.contador small {
-    display: block;
-    margin-top: 7px;
-    color: var(--rosa-oscuro);
-    font-size: .56rem;
-    letter-spacing: .1em;
+.tiempo small {
+    margin-top: 8px;
+    font-size: 9px;
+    letter-spacing: 1px;
 }
 
-.contador-pie {
-    margin-top: 22px;
-    color: var(--gris);
-    font-size: .8rem;
+.mensaje-cuenta {
+    font-size: 12px;
 }
 
-/* MISA Y RECEPCIÓN */
+/* CEREMONIA Y RECEPCIÓN */
 
-.ceremonia,
-.recepcion {
-    padding: 90px 22px;
+.evento {
+    padding: 60px 22px;
     text-align: center;
-    background: #fff;
 }
 
-.ceremonia {
-    background: linear-gradient(180deg, #fffaf7, #fff);
+.recepcion {
+    background: linear-gradient(180deg, #f7e6e9, #fff8f8);
 }
 
-.icono-redondo {
-    width: 66px;
-    height: 66px;
-    margin: 0 auto 22px;
-    display: grid;
-    place-items: center;
-    border: 1px solid var(--dorado);
-    border-radius: 50%;
+.icono-evento {
     color: var(--dorado);
-    font-size: 1.7rem;
+    font-size: 37px;
 }
 
-.ceremonia h2,
-.recepcion h2,
-.dresscode h2 {
-    font-family: var(--serif);
-    font-weight: 400;
-    font-size: clamp(2.5rem, 6vw, 3.5rem);
-    margin-top: 5px;
+.hora-evento {
+    margin: 12px 0;
+    color: var(--dorado);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 2px;
 }
 
-.linea-dorada {
-    width: 55px;
-    height: 1px;
-    margin: 18px auto;
-    background: var(--dorado);
+.detalle-evento {
+    margin: 12px auto 22px;
+    font-size: 14px;
 }
 
-.dato-principal {
-    font-family: var(--serif);
-    font-size: 1.8rem;
-}
-
-.dato-secundario {
-    color: var(--gris);
-    margin-top: 4px;
-}
+/* BOTONES */
 
 .boton {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    margin-top: 28px;
-    padding: 14px 27px;
+    display: inline-block;
+    margin-top: 12px;
+    padding: 12px 25px;
     border: 1px solid var(--dorado);
-    background: var(--rosa-claro);
-    color: var(--tinta);
-    text-decoration: none;
-    font-size: .76rem;
-    letter-spacing: .05em;
-    cursor: pointer;
-    transition: transform .25s ease, background .25s ease;
+    color: var(--vino);
+    background: #fff;
+    font-size: 12px;
+    letter-spacing: 1px;
+    transition: background .2s, color .2s;
 }
 
 .boton:hover {
-    transform: translateY(-3px);
-    background: #f4dce6;
+    color: #fff;
+    background: var(--vino);
 }
 
-.boton span {
-    color: var(--rosa-oscuro);
-    font-size: 1.1rem;
-}
+/* DETALLES */
 
-.nota-lugar {
-    margin-top: 13px;
-    color: var(--gris);
-    font-size: .72rem;
-}
-
-/* CÓDIGO DE VESTIMENTA */
-
-.dresscode {
-    position: relative;
-    overflow: hidden;
+.detalles {
+    padding: 60px 22px;
     text-align: center;
-    padding: 85px 25px 75px;
-    background: #fbf0f5;
+    background: #fffafa;
 }
 
-.adorno {
+.detalle-tarjeta {
+    max-width: 430px;
+    margin: 18px auto;
+    padding: 25px 20px;
+    border: 1px solid #ead7da;
+    background: #fff;
+}
+
+.detalle-icono {
     color: var(--dorado);
-    font-size: 2rem;
+    font-size: 27px;
 }
 
-.dresscode h2 {
-    color: var(--rosa-oscuro);
-}
-
-.vestido {
-    display: grid;
-    place-items: center;
-    width: 95px;
-    height: 95px;
-    margin: 22px auto 12px;
-    border: 1px solid rgba(185,154,98,.55);
-    border-radius: 50%;
-    color: var(--dorado);
-    font-size: 3rem;
-}
-
-.dresscode h3 {
-    font-family: var(--serif);
-    font-size: 1.8rem;
+.detalle-tarjeta h3 {
+    margin: 8px 0;
+    color: var(--vino);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 27px;
     font-weight: 500;
 }
 
-.dresscode p:not(.etiqueta) {
-    max-width: 480px;
-    margin: 12px auto 0;
-    color: var(--gris);
-    font-size: .9rem;
-}
-
-.detalle-regalo {
-    max-width: 490px;
-    margin: 38px auto 0;
-    padding: 25px 22px;
-    border-top: 1px solid rgba(185,154,98,.5);
-    border-bottom: 1px solid rgba(185,154,98,.5);
-}
-
-.regalo-icono {
-    color: var(--dorado);
-    font-size: 1.8rem;
-    margin-bottom: 8px;
-}
-
-.detalle-regalo h3 {
-    color: var(--rosa-oscuro);
-    font-family: var(--serif);
-    font-size: 1.7rem;
-    font-weight: 500;
-}
-
-.detalle-regalo p {
-    max-width: 440px;
-    margin: 10px auto 0;
-    color: var(--gris);
-    font-size: .86rem;
-    line-height: 1.8;
-}
-
-.disco-grande {
-    width: 100px;
-    height: 100px;
-    margin: 35px auto 0;
-    border-radius: 50%;
-    opacity: .5;
-    background: repeating-conic-gradient(
-        #bca8ae 0deg 5deg,
-        #e8dce0 5deg 10deg
-    );
-    box-shadow:
-        inset 0 0 15px rgba(70,45,55,.3),
-        0 8px 20px rgba(70,45,55,.12);
+.detalle-tarjeta p {
+    font-size: 13px;
 }
 
 /* CONFIRMACIÓN */
 
 .confirmacion {
-    padding: 85px 25px 90px;
+    padding: 65px 22px;
     text-align: center;
-    background: linear-gradient(145deg, #fffaf7, #f6e2eb);
+    background: #f6e5e8;
 }
 
-.sobre {
-    color: var(--rosa-oscuro);
-    font-size: 3.1rem;
-    line-height: 1.2;
+.confirmacion > p:not(.etiqueta) {
+    font-size: 13px;
 }
 
-.confirmacion h2 {
-    margin-top: 12px;
-    font-family: var(--serif);
-    font-size: clamp(2.4rem, 6vw, 3.5rem);
-    font-weight: 400;
-}
-
-.confirmacion p:not(.etiqueta) {
-    max-width: 490px;
-    margin: 16px auto 0;
-    color: var(--gris);
-    font-size: .88rem;
-}
-
-.whatsapp {
-    border: 0;
-    border-radius: 2px;
-    background: var(--rosa-oscuro);
-    color: white;
-    box-shadow: 0 9px 25px rgba(185,105,139,.2);
-}
-
-.whatsapp:hover {
-    background: #a95678;
-}
-
-.whatsapp span {
-    color: white;
-}
-
-/* MENSAJE FINAL */
-
-.final {
-    min-height: 65vh;
-    padding: 95px 25px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background: #fff;
-}
-
-.final-ornamento {
-    color: var(--dorado);
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
-
-.final h2 {
-    max-width: 650px;
-    margin-top: 10px;
-    font-family: var(--serif);
-    font-weight: 400;
-    font-size: clamp(2.6rem, 7vw, 4.2rem);
-    line-height: 1.1;
-    color: var(--rosa-oscuro);
-}
-
-.final p:not(.etiqueta):not(.final-fecha) {
-    max-width: 470px;
-    margin-top: 18px;
-    color: var(--gris);
-}
-
-.corazon {
+.boton-whatsapp {
     margin-top: 25px;
+    color: white;
+    background: #85616c;
+}
+
+.boton-whatsapp:hover {
+    background: #694653;
+}
+
+/* DESPEDIDA */
+
+.footer {
+    padding: 55px 20px;
+    text-align: center;
+    background: #fff8f8;
+}
+
+.footer h2 {
+    margin-bottom: 5px;
+}
+
+.footer p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 21px;
+}
+
+.footer .footer-fecha {
+    margin-top: 18px;
     color: var(--dorado);
-    font-size: 3.2rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    letter-spacing: 4px;
 }
 
-.final h3 {
-    font-family: var(--serif);
-    font-size: 2.8rem;
-    font-weight: 500;
-    color: var(--rosa-oscuro);
+/* BOTÓN DE MÚSICA */
+
+.boton-musica {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 100;
+    width: 48px;
+    height: 48px;
+    border: 1px solid var(--dorado);
+    border-radius: 50%;
+    color: var(--vino);
+    background: rgba(255,255,255,.95);
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,.1);
+    touch-action: manipulation;
 }
 
-.final-fecha {
-    margin-top: 10px;
-    color: var(--dorado);
-    font-size: .7rem;
-    letter-spacing: .22em;
-}
-
-/* ANIMACIONES */
-
-.revelar {
-    opacity: 0;
-    transform: translateY(22px);
-    transition: opacity .7s ease, transform .7s ease;
-}
-
-.revelar.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* CELULARES */
-
-@media (max-width: 600px) {
-    .portada {
-        padding: 45px 24px 65px;
-    }
-
-    .portada::before {
-        inset: 12px;
-    }
-
-    .portada::after {
-        inset: 18px;
-    }
-
-    .imagen-portada {
-        width: 125px;
-        height: 125px;
-    }
-
-    .sobrelinea {
-        font-size: .56rem;
-        letter-spacing: .15em;
-    }
-
-    .pequeno {
-        letter-spacing: .3em;
-    }
-
-    .disco1 {
-        width: 95px;
-        height: 95px;
-        right: -35px;
-    }
-
-    .globos {
-        right: 4%;
-        bottom: 8%;
-        transform: scale(.8) rotate(-13deg);
-    }
-
+@media (max-width: 480px) {
     .hero {
-        padding: 75px 25px 65px;
+        padding: 65px 18px 50px;
     }
 
-    .fecha {
-        gap: 10px;
+    .foto-seccion {
+        padding: 42px 16px;
     }
 
-    .fecha strong {
-        font-size: 4.1rem;
+    .portada-contenido {
+        padding: 25px 14px;
     }
 
-    .fecha-mes {
-        font-size: .58rem;
-    }
-
-    .fecha-mes b {
-        font-size: .75rem;
-    }
-
-    .fecha-anio {
-        padding-left: 10px;
-        font-size: .75rem;
-    }
-
-    .contador {
-        gap: 7px;
-    }
-
-    .contador div {
-        padding: 12px 2px 10px;
-    }
-
-    .contador small {
-        font-size: .48rem;
-        letter-spacing: .04em;
-    }
-
-    .foto-marco img {
-        max-height: 460px;
-    }
-
+    .texto-superior,
     .etiqueta {
-        letter-spacing: .15em;
+        letter-spacing: 2.5px;
     }
 
-    .detalle-regalo {
-        padding: 22px 14px;
-    }
-}
-
-/* ACCESIBILIDAD */
-
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        scroll-behavior: auto !important;
-        transition-duration: .01ms !important;
-        animation-duration: .01ms !important;
-    }
-
-    .revelar {
-        opacity: 1;
-        transform: none;
+    .tiempo {
+        min-height: 76px;
     }
 }
+
