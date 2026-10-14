@@ -1,4 +1,3 @@
-
 // ========================================
 // INVITACIÓN XV AÑOS DE ALEJANDRA
 // ========================================
@@ -9,36 +8,27 @@ function entrar() {
     const invitacion = document.getElementById("invitacion");
     const musica = document.getElementById("musica");
 
-    if (portada) {
-        portada.classList.add("portada-cerrada");
-    }
+    portada.classList.add("portada-cerrada");
+    invitacion.classList.remove("oculto");
 
-    if (invitacion) {
-        invitacion.classList.remove("oculto");
-    }
-
-    // La música empieza después de pulsar el botón.
+    // La música comienza cuando la persona toca el botón.
     if (musica) {
         musica.play().catch(() => {
-            console.info(
-                "El navegador puede bloquear la reproducción de audio."
-            );
+            console.info("El navegador puede bloquear la reproducción de audio.");
         });
     }
 
     window.setTimeout(() => {
-        if (invitacion) {
-            invitacion.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
-        }
+        invitacion.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
     }, 100);
 }
 
 // CUENTA REGRESIVA
-// 14 de noviembre de 2026 a las 7:00 p. m.
-const fechaEvento = new Date(2026, 10, 14, 19, 0, 0).getTime();
+// Fecha del evento: 14 de noviembre de 2026, a las 9:00 p. m.
+const fechaEvento = new Date(2026, 10, 14, 21, 0, 0).getTime();
 
 function actualizarContador() {
     const dias = document.getElementById("dias");
@@ -86,33 +76,36 @@ function actualizarContador() {
     ).padStart(2, "0");
 }
 
+// Actualizar el contador cada segundo.
 actualizarContador();
 setInterval(actualizarContador, 1000);
 
 // CONFIRMAR ASISTENCIA POR WHATSAPP
 function confirmarAsistencia() {
-    // Verifica que este sea el número correcto.
+    // Número con lada internacional de México.
+    // Cámbialo si el número de confirmación es otro.
     const telefono = "529615480094";
 
     const mensaje =
         "¡Hola! 💗✨ Me comunico para confirmar mi asistencia " +
         "a los XV años de Alejandra, este 14 de noviembre de 2026. " +
-        "Muchas gracias por la invitación. 👑🌸 ¡Nos vemos para celebrar!";
+        "Muchas gracias por la invitación. 👑🌸 " +
+        "¡Nos vemos para celebrar esta noche tan especial!";
 
     const url =
-        `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+        https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)};
 
     window.open(url, "_blank", "noopener,noreferrer");
 }
 
-// ANIMACIONES AL DESPLAZARSE
+// ANIMACIÓN DE LAS SECCIONES AL DESPLAZARSE
 document.addEventListener("DOMContentLoaded", () => {
     const secciones = document.querySelectorAll(
-        ".hero, .foto-seccion, .cuenta, .ceremonia, " +
-        ".recepcion, .dresscode, .confirmacion, .final"
+        ".foto-seccion, .cuenta, .recepcion, " +
+        ".dresscode, .confirmacion, .final"
     );
 
-    // Alternativa para navegadores que no admiten IntersectionObserver.
+    // Alternativa para navegadores sin IntersectionObserver.
     if (!("IntersectionObserver" in window)) {
         secciones.forEach((seccion) => {
             seccion.classList.add("visible");
@@ -136,4 +129,4 @@ document.addEventListener("DOMContentLoaded", () => {
         seccion.classList.add("revelar");
         observador.observe(seccion);
     });
-});
+}); 
