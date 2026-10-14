@@ -1,7 +1,7 @@
 
 /* ==========================================
-   NUEVO ESTILO ELEGANTE - XV DE ALEJANDRA
-   Rosa empolvado + marfil + vino + dorado
+   XV AÑOS DE ALEJANDRA
+   Rosa empolvado, marfil, vino y dorado
 ========================================== */
 
 :root {
@@ -14,188 +14,253 @@
     --vino: #633849;
     --tinta: #493740;
     --gris: #82747c;
+    --serif: "Cormorant Garamond", Georgia, serif;
+    --sans: "Montserrat", Arial, sans-serif;
 }
 
-/* Fondo general */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    background:
-        radial-gradient(ellipse at 8% 8%, rgba(246,215,228,.75), transparent 35%),
-        radial-gradient(ellipse at 92% 35%, rgba(234,216,180,.38), transparent 32%),
-        linear-gradient(145deg, #fffaf6 0%, #fff4f8 48%, #f6e3eb 100%);
-    background-attachment: fixed;
+    font-family: var(--sans);
     color: var(--tinta);
-}
-
-/* Portada inicial */
-.portada {
     background:
-        radial-gradient(ellipse at center, rgba(255,255,255,.94), transparent 68%),
-        linear-gradient(135deg, #fffaf6, #f5dce7 58%, #f1e1cb);
+        radial-gradient(ellipse at 8% 8%, rgba(246,215,228,.7), transparent 35%),
+        radial-gradient(ellipse at 92% 35%, rgba(234,216,180,.35), transparent 32%),
+        linear-gradient(145deg, #fffaf6, #fff4f8 52%, #f6e3eb);
+    background-attachment: fixed;
+    line-height: 1.8;
+    font-size: 14px;
 }
 
-.portada::before {
-    border-color: rgba(185,154,98,.72);
+button, a {
+    -webkit-tap-highlight-color: transparent;
 }
 
-.portada::after {
-    border-color: rgba(169,79,115,.35);
+button {
+    font-family: inherit;
 }
 
-.portada h1,
-.nombre,
-.final h2,
-.final h3 {
+h1, h2, h3 {
+    font-family: var(--serif);
+    font-weight: 400;
+    line-height: 1.15;
+}
+
+h2 {
+    color: var(--vino);
+    font-size: clamp(2.3rem, 6vw, 3.4rem);
+    margin: 12px 0 18px;
+}
+
+h3 {
     color: var(--rosa-oscuro);
-    text-shadow: 0 3px 18px rgba(169,79,115,.08);
+    font-size: 1.8rem;
+    margin: 12px 0;
 }
 
-/* Presentación de Alejandra */
-.hero {
-    background:
-        radial-gradient(ellipse at 0% 0%, rgba(239,190,210,.42), transparent 42%),
-        radial-gradient(ellipse at 100% 100%, rgba(234,216,180,.34), transparent 38%),
-        linear-gradient(135deg, #fffaf6 0%, #fff3f7 52%, #f7e7ed 100%);
+p {
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.hero::before {
-    border-color: rgba(185,154,98,.5);
+.oculto {
+    display: none !important;
 }
 
-.edad,
-.numero,
-.fecha strong {
-    color: var(--dorado);
+.etiqueta {
+    font-size: .68rem;
+    font-weight: 600;
+    letter-spacing: .2em;
+    line-height: 1.8;
+    color: var(--rosa-oscuro);
+    text-transform: uppercase;
 }
 
-/* Detalles decorativos */
-.etiqueta,
-.ornamento,
-.flor-linea,
-.final-ornamento,
-.corazon {
-    color: var(--dorado);
+.subtitulo {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    color: var(--gris);
 }
 
-.separador span,
+.nombre {
+    font-family: var(--serif);
+    font-size: clamp(3.5rem, 10vw, 6rem);
+    line-height: 1.05;
+    color: var(--rosa-oscuro);
+    margin: 12px 0;
+}
+
+.frase, .frase-foto {
+    font-family: var(--serif);
+    font-size: 1.35rem;
+    font-style: italic;
+    color: var(--gris);
+    line-height: 1.6;
+}
+
 .linea-dorada {
+    width: 100px;
+    height: 1px;
+    margin: 24px auto;
     background: linear-gradient(90deg, transparent, var(--dorado), transparent);
 }
 
-/* Secciones con fotografías */
-.foto-seccion {
+.separador {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    color: var(--dorado);
+    font-size: 1.3rem;
+    margin: 24px 0;
+}
+
+.separador span {
+    display: block;
+    width: 55px;
+    height: 1px;
+    background: var(--dorado);
+}
+
+/* PORTADA */
+.portada {
+    min-height: 100vh;
+    min-height: 100svh;
+    display: grid;
+    place-items: center;
+    padding: 26px 18px;
+    text-align: center;
     background:
-        radial-gradient(ellipse at 10% 15%, rgba(246,221,231,.72), transparent 42%),
-        linear-gradient(145deg, #fffdfb, #fff4f8 65%, #fffaf2);
+        radial-gradient(ellipse at center, rgba(255,255,255,.92), transparent 68%),
+        linear-gradient(135deg, #fffaf6, #f5dce7 58%, #f1e1cb);
+    position: relative;
+    overflow: hidden;
 }
 
-.foto-marco {
-    padding: 10px;
-    border: 1px solid rgba(185,154,98,.8);
-    border-radius: 4px;
-    background: linear-gradient(135deg, #fff, #fff8f0);
-    box-shadow: 0 22px 60px rgba(99,56,73,.16);
+.portada::before,
+.portada::after {
+    content: "";
+    position: absolute;
+    width: min(85vw, 520px);
+    height: min(85vw, 520px);
+    border: 1px solid rgba(185,154,98,.4);
+    border-radius: 50%;
+    pointer-events: none;
 }
 
-.foto-borde {
-    border-color: rgba(217,139,171,.48);
+.portada::after {
+    width: min(72vw, 440px);
+    height: min(72vw, 440px);
+    border-color: rgba(169,79,115,.2);
 }
 
-/* Cuenta regresiva */
-.cuenta {
-    background:
-        radial-gradient(circle at 15% 15%, rgba(255,255,255,.9), transparent 30%),
-        radial-gradient(circle at 90% 85%, rgba(234,216,180,.35), transparent 32%),
-        linear-gradient(135deg, #f3dce6 0%, #fff8f6 52%, #f1e0ce 100%);
-}
-
-.cuenta h2,
-.ceremonia h2,
-.recepcion h2,
-.dresscode h2,
-.confirmacion h2 {
-    color: var(--vino);
-}
-
-.contador div {
+.marco-portada {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 560px);
+    padding: clamp(32px, 8vw, 65px) 24px;
     border: 1px solid rgba(185,154,98,.55);
-    border-radius: 6px;
-    background: rgba(255,255,255,.78);
-    box-shadow: 0 10px 28px rgba(99,56,73,.08);
+    background: rgba(255,250,247,.72);
+    box-shadow: 0 25px 80px rgba(99,56,73,.09);
     backdrop-filter: blur(5px);
 }
 
-.contador span {
+.ornamento, .adorno-inferior, .final-ornamento {
+    color: var(--dorado);
+    font-size: 1.7rem;
+}
+
+.portada h1 {
+    color: var(--vino);
+    font-size: clamp(3.2rem, 10vw, 5rem);
+    margin: 12px 0 0;
+}
+
+.edad {
+    color: var(--dorado);
+    font-family: var(--serif);
+    font-size: 2.6rem;
+    margin: 15px 0;
+}
+
+.fecha-portada {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin: 28px 0;
     color: var(--vino);
 }
 
-.contador small {
-    color: var(--rosa-oscuro);
-}
-
-/* Misa de acción de gracias */
-.ceremonia {
-    position: relative;
-    padding: 88px 22px;
-    text-align: center;
-    background:
-        radial-gradient(ellipse at 0% 30%, rgba(239,190,210,.38), transparent 42%),
-        linear-gradient(135deg, #fffaf6, #f9eaf0 68%, #fff6eb);
-    border-top: 1px solid rgba(185,154,98,.25);
-}
-
-.ceremonia h2 {
-    margin-top: 5px;
+.dia {
     font-family: var(--serif);
-    font-size: clamp(2.3rem, 6vw, 3.4rem);
-    font-weight: 400;
+    font-size: 3.4rem;
+    line-height: 1;
+    border-right: 1px solid var(--dorado);
+    padding-right: 16px;
 }
 
-.ceremonia .dato-principal {
+.mes {
+    font-size: .7rem;
+    letter-spacing: .12em;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.mes strong {
     color: var(--rosa-oscuro);
 }
 
-/* Recepción */
-.recepcion {
-    background:
-        radial-gradient(ellipse at 50% 0%, rgba(245,222,232,.72), transparent 50%),
-        linear-gradient(180deg, #fffdfb, #fff4f8 70%, #fffaf2);
-    border-top: 1px solid rgba(185,154,98,.25);
+.anio {
+    font-family: var(--serif);
+    font-size: 1.7rem;
+    border-left: 1px solid var(--dorado);
+    padding-left: 16px;
 }
 
-.icono-redondo {
-    background: rgba(255,255,255,.52);
-    box-shadow: 0 8px 25px rgba(99,56,73,.06);
+.te-esperamos {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    color: var(--vino);
+    margin: 20px auto;
 }
 
-/* Vestimenta y regalo */
-.dresscode {
-    background:
-        radial-gradient(ellipse at 0% 0%, rgba(255,255,255,.85), transparent 40%),
-        radial-gradient(ellipse at 100% 100%, rgba(234,216,180,.4), transparent 38%),
-        linear-gradient(135deg, #f3dce7 0%, #fff0f5 52%, #f6e5d4 100%);
-    border-top: 1px solid rgba(185,154,98,.25);
+.adorno-inferior {
+    margin-top: 25px;
+    font-size: .9rem;
+    letter-spacing: .3em;
 }
 
-.vestido {
-    background: rgba(255,255,255,.42);
-    box-shadow: 0 8px 24px rgba(99,56,73,.06);
-}
-
-.detalle-regalo {
-    padding: 28px 22px;
-    border: 1px solid rgba(185,154,98,.38);
-    border-radius: 6px;
-    background: rgba(255,250,247,.62);
-    box-shadow: 0 12px 32px rgba(99,56,73,.05);
-}
-
-/* Botones */
+/* BOTONES */
 .boton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 48px;
+    padding: 12px 25px;
+    margin-top: 20px;
+    border: 1px solid var(--dorado);
     border-radius: 4px;
-    border-color: var(--dorado);
     background: linear-gradient(135deg, #fffaf6, #f7e1ea);
-    box-shadow: 0 8px 24px rgba(99,56,73,.09);
-    transition: transform .25s ease, box-shadow .25s ease;
+    color: var(--vino);
+    text-decoration: none;
+    font-family: var(--sans);
+    font-size: .75rem;
+    font-weight: 600;
+    letter-spacing: .07em;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(99,56,73,.08);
+    transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
 }
 
 .boton:hover {
@@ -204,43 +269,28 @@ body {
     transform: translateY(-3px);
 }
 
+.boton span {
+    font-size: 1rem;
+}
+
 .whatsapp {
+    color: white;
+    border: none;
     background: linear-gradient(135deg, #a94f73, #81435d);
-    color: #fff;
-    border: 0;
 }
 
 .whatsapp:hover {
     background: linear-gradient(135deg, #914364, #71364f);
 }
 
-/* Confirmación */
-.confirmacion {
-    background:
-        radial-gradient(ellipse at 100% 0%, rgba(234,216,180,.4), transparent 38%),
-        radial-gradient(ellipse at 0% 100%, rgba(231,179,201,.42), transparent 40%),
-        linear-gradient(145deg, #fffaf6, #f7e2eb 58%, #f1dfd1);
-    border-top: 1px solid rgba(185,154,98,.25);
-}
-
-/* Mensaje final */
-.final {
-    background:
-        radial-gradient(ellipse at 50% 0%, rgba(244,218,229,.68), transparent 45%),
-        linear-gradient(180deg, #fffdfb, #fff3f7 65%, #fff8ef);
-    border-top: 1px solid rgba(185,154,98,.25);
-}
-
-/* Adornos sutiles al final de cada sección */
-.hero,
-.foto-seccion,
-.cuenta,
-.ceremonia,
-.recepcion,
-.dresscode,
-.confirmacion,
-.final {
+/* SECCIONES GENERALES */
+.hero, .foto-seccion, .cuenta, .ceremonia,
+.recepcion, .dresscode, .confirmacion, .final {
     position: relative;
+    isolation: isolate;
+    text-align: center;
+    padding: clamp(65px, 10vw, 105px) 22px;
+    overflow: hidden;
 }
 
 .hero::after,
@@ -253,16 +303,290 @@ body {
 .final::after {
     content: "✦  ·  ✧  ·  ✦";
     display: block;
-    margin: 24px auto 0;
+    margin: 28px auto 0;
     color: rgba(185,154,98,.65);
     font-size: .75rem;
     letter-spacing: .45em;
-    text-align: center;
     pointer-events: none;
 }
 
-/* Animaciones suaves */
+.hero {
+    background:
+        radial-gradient(ellipse at 0% 0%, rgba(239,190,210,.42), transparent 42%),
+        radial-gradient(ellipse at 100% 100%, rgba(234,216,180,.3), transparent 38%),
+        linear-gradient(135deg, #fffaf6, #fff3f7 52%, #f7e7ed);
+}
+
+.texto-intro {
+    max-width: 560px;
+    color: var(--gris);
+    line-height: 2;
+}
+
+.corazon {
+    margin-top: 24px;
+    color: var(--dorado);
+    font-size: 2rem;
+}
+
+.foto-seccion {
+    background:
+        radial-gradient(ellipse at 10% 15%, rgba(246,221,231,.72), transparent 42%),
+        linear-gradient(145deg, #fffdfb, #fff4f8 65%, #fffaf2);
+}
+
+.foto-marco {
+    width: min(100%, 390px);
+    margin: 30px auto;
+    padding: 10px;
+    border: 1px solid rgba(185,154,98,.8);
+    background: linear-gradient(135deg, #fff, #fff8f0);
+    box-shadow: 0 22px 60px rgba(99,56,73,.16);
+}
+
+.foto-borde {
+    padding: 5px;
+    border: 1px solid rgba(217,139,171,.48);
+}
+
+.foto-principal {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 570px;
+    object-fit: cover;
+}
+
+.frase-foto {
+    max-width: 480px;
+    margin-top: 28px;
+}
+
+.foto-secundaria {
+    background:
+        radial-gradient(ellipse at 100% 0%, rgba(234,216,180,.3), transparent 38%),
+        linear-gradient(145deg, #f9e8ef, #fffaf6);
+}
+
+/* CUENTA REGRESIVA */
+.cuenta {
+    background:
+        radial-gradient(circle at 15% 15%, rgba(255,255,255,.9), transparent 30%),
+        radial-gradient(circle at 90% 85%, rgba(234,216,180,.35), transparent 32%),
+        linear-gradient(135deg, #f3dce6, #fff8f6 52%, #f1e0ce);
+}
+
+.contador {
+    display: flex;
+    justify-content: center;
+    gap: clamp(8px, 2vw, 18px);
+    max-width: 600px;
+    margin: 32px auto;
+}
+
+.contador div {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+    padding: 18px 8px;
+    border: 1px solid rgba(185,154,98,.55);
+    border-radius: 6px;
+    background: rgba(255,255,255,.78);
+    box-shadow: 0 10px 28px rgba(99,56,73,.08);
+    backdrop-filter: blur(5px);
+}
+
+.contador span {
+    color: var(--vino);
+    font-family: var(--serif);
+    font-size: clamp(1.7rem, 5vw, 2.7rem);
+    line-height: 1.2;
+}
+
+.contador small {
+    color: var(--rosa-oscuro);
+    font-size: .55rem;
+    letter-spacing: .1em;
+    margin-top: 8px;
+}
+
+.mensaje-contador {
+    color: var(--gris);
+    font-style: italic;
+}
+
+.fecha-evento {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 25px;
+    color: var(--vino);
+}
+
+.fecha-evento > span {
+    font-family: var(--serif);
+    font-size: 3rem;
+    color: var(--dorado);
+}
+
+.fecha-evento div {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    line-height: 1.5;
+}
+
+.fecha-evento small {
+    color: var(--gris);
+}
+
+/* MISA */
+.ceremonia {
+    background:
+        radial-gradient(ellipse at 0% 30%, rgba(239,190,210,.38), transparent 42%),
+        linear-gradient(135deg, #fffaf6, #f9eaf0 68%, #fff6eb);
+    border-top: 1px solid rgba(185,154,98,.25);
+}
+
+.icono-redondo {
+    display: grid;
+    place-items: center;
+    width: 58px;
+    height: 58px;
+    margin: 0 auto 22px;
+    border: 1px solid var(--dorado);
+    border-radius: 50%;
+    background: rgba(255,255,255,.52);
+    color: var(--dorado);
+    font-size: 1.8rem;
+    box-shadow: 0 8px 25px rgba(99,56,73,.06);
+}
+
+.dato-principal {
+    color: var(--rosa-oscuro);
+    font-family: var(--serif);
+    font-size: 2rem;
+    margin: 22px auto 8px;
+}
+
+.dato-secundario {
+    color: var(--tinta);
+    font-size: .95rem;
+}
+
+.nota-lugar {
+    color: var(--gris);
+    font-size: .85rem;
+    margin-top: 22px;
+}
+
+/* RECEPCIÓN */
+.recepcion {
+    background:
+        radial-gradient(ellipse at 50% 0%, rgba(245,222,232,.72), transparent 50%),
+        linear-gradient(180deg, #fffdfb, #fff4f8 70%, #fffaf2);
+    border-top: 1px solid rgba(185,154,98,.25);
+}
+
+/* VESTIMENTA Y REGALO */
+.dresscode {
+    background:
+        radial-gradient(ellipse at 0% 0%, rgba(255,255,255,.85), transparent 40%),
+        radial-gradient(ellipse at 100% 100%, rgba(234,216,180,.4), transparent 38%),
+        linear-gradient(135deg, #f3dce7, #fff0f5 52%, #f6e5d4);
+    border-top: 1px solid rgba(185,154,98,.25);
+}
+
+.vestido {
+    display: grid;
+    place-items: center;
+    width: 74px;
+    height: 74px;
+    margin: 24px auto 10px;
+    border: 1px solid rgba(185,154,98,.6);
+    border-radius: 50%;
+    color: var(--dorado);
+    background: rgba(255,255,255,.42);
+    font-size: 2.3rem;
+}
+
+.detalle-regalo {
+    max-width: 520px;
+    margin: 45px auto 10px;
+    padding: 28px 22px;
+    border: 1px solid rgba(185,154,98,.38);
+    border-radius: 6px;
+    background: rgba(255,250,247,.62);
+    box-shadow: 0 12px 32px rgba(99,56,73,.05);
+}
+
+.regalo-icono {
+    color: var(--dorado);
+    font-size: 2rem;
+}
+
+.disco-grande {
+    width: 120px;
+    height: 120px;
+    margin: 40px auto 0;
+    border: 1px solid rgba(185,154,98,.25);
+    border-radius: 50%;
+    background: radial-gradient(circle, #fffaf6 0 12%, #ead8b4 13% 14%, #f6e5ec 15% 35%, #fffaf6 36% 37%, #efd6e1 38% 60%, #fffaf6 61%);
+    opacity: .6;
+}
+
+/* CONFIRMACIÓN */
+.confirmacion {
+    background:
+        radial-gradient(ellipse at 100% 0%, rgba(234,216,180,.4), transparent 38%),
+        radial-gradient(ellipse at 0% 100%, rgba(231,179,201,.42), transparent 40%),
+        linear-gradient(145deg, #fffaf6, #f7e2eb 58%, #f1dfd1);
+    border-top: 1px solid rgba(185,154,98,.25);
+}
+
+.sobre {
+    color: var(--dorado);
+    font-size: 3rem;
+    margin-bottom: 18px;
+}
+
+.confirmacion > p:not(.etiqueta),
+.final > p:not(.etiqueta) {
+    color: var(--gris);
+    max-width: 550px;
+    line-height: 2;
+}
+
+/* MENSAJE FINAL */
+.final {
+    background:
+        radial-gradient(ellipse at 50% 0%, rgba(244,218,229,.68), transparent 45%),
+        linear-gradient(180deg, #fffdfb, #fff3f7 65%, #fff8ef);
+    border-top: 1px solid rgba(185,154,98,.25);
+}
+
+.final-ornamento {
+    margin-bottom: 20px;
+}
+
+.final h3 {
+    font-size: 3rem;
+    color: var(--rosa-oscuro);
+}
+
+.final-fecha {
+    color: var(--dorado);
+    letter-spacing: .22em;
+    margin-top: 18px;
+}
+
+/* ANIMACIONES */
 .revelar {
+    opacity: 0;
+    transform: translateY(24px);
     transition: opacity .8s ease, transform .8s ease;
 }
 
@@ -271,18 +595,44 @@ body {
     transform: translateY(0);
 }
 
-/* Ajustes para celulares */
+.portada-cerrada {
+    display: none;
+}
+
+/* CELULARES */
 @media (max-width: 600px) {
     body {
         background-attachment: scroll;
     }
 
-    .ceremonia {
-        padding: 72px 22px 76px;
+    .portada {
+        padding: 16px 12px;
+    }
+
+    .marco-portada {
+        padding: 34px 18px;
+    }
+
+    .hero, .foto-seccion, .cuenta, .ceremonia,
+    .recepcion, .dresscode, .confirmacion, .final {
+        padding: 68px 20px;
+    }
+
+    .contador {
+        gap: 6px;
+    }
+
+    .contador div {
+        padding: 14px 4px;
+    }
+
+    .contador small {
+        font-size: .48rem;
+        letter-spacing: .04em;
     }
 
     .foto-marco {
-        width: min(88vw, 390px);
+        width: min(100%, 350px);
     }
 
     .detalle-regalo {
@@ -292,15 +642,24 @@ body {
     .etiqueta {
         letter-spacing: .14em;
     }
+
+    .boton {
+        max-width: 100%;
+    }
 }
 
-/* Respetar a quienes prefieren menos movimiento */
+/* ACCESIBILIDAD */
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
     *::after {
         scroll-behavior: auto !important;
-        transition-duration: .01ms !important;
         animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+    }
+
+    .revelar {
+        opacity: 1;
+        transform: none;
     }
 }
