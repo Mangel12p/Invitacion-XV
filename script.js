@@ -9,10 +9,15 @@ function entrar() {
     const invitacion = document.getElementById("invitacion");
     const musica = document.getElementById("musica");
 
-    portada.classList.add("portada-cerrada");
-    invitacion.classList.remove("oculto");
+    if (portada) {
+        portada.classList.add("portada-cerrada");
+    }
 
-    // La música comienza cuando la persona toca el botón.
+    if (invitacion) {
+        invitacion.classList.remove("oculto");
+    }
+
+    // La música comienza cuando la persona pulsa el botón.
     if (musica) {
         musica.play().catch(() => {
             console.info("El navegador puede bloquear la reproducción de audio.");
@@ -20,16 +25,18 @@ function entrar() {
     }
 
     window.setTimeout(() => {
-        invitacion.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
+        if (invitacion) {
+            invitacion.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        }
     }, 100);
 }
 
 // CUENTA REGRESIVA
-// Fecha del evento: 14 de noviembre de 2026, a las 9:00 p. m.
-const fechaEvento = new Date(2026, 10, 14, 21, 0, 0).getTime();
+// 14 de noviembre de 2026 a las 7:00 p. m.
+const fechaEvento = new Date(2026, 10, 14, 19, 0, 0).getTime();
 
 function actualizarContador() {
     const dias = document.getElementById("dias");
@@ -77,21 +84,18 @@ function actualizarContador() {
     ).padStart(2, "0");
 }
 
-// Actualizar el contador cada segundo.
 actualizarContador();
 setInterval(actualizarContador, 1000);
 
 // CONFIRMAR ASISTENCIA POR WHATSAPP
 function confirmarAsistencia() {
-    // Número con lada internacional de México.
-    // Cámbialo si el número de confirmación es otro.
+    // Verifica que este sea el número correcto.
     const telefono = "529615480094";
 
     const mensaje =
         "¡Hola! 💗✨ Me comunico para confirmar mi asistencia " +
         "a los XV años de Alejandra, este 14 de noviembre de 2026. " +
-        "Muchas gracias por la invitación. 👑🌸 " +
-        "¡Nos vemos para celebrar esta noche tan especial!";
+        "Muchas gracias por la invitación. 👑🌸 ¡Nos vemos para celebrar!";
 
     const url =
         `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
@@ -99,14 +103,15 @@ function confirmarAsistencia() {
     window.open(url, "_blank", "noopener,noreferrer");
 }
 
-// ANIMACIÓN DE LAS SECCIONES AL DESPLAZARSE
+// ANIMACIONES DE LAS SECCIONES AL DESPLAZARSE
 document.addEventListener("DOMContentLoaded", () => {
     const secciones = document.querySelectorAll(
-        ".foto-seccion, .cuenta, .recepcion, " +
+        ".foto-seccion, .cuenta, .ceremonia, .recepcion, " +
         ".dresscode, .confirmacion, .final"
     );
 
-    // Alternativa para navegadores sin IntersectionObserver.
+    // Si el navegador no admite esta función,
+    // muestra todas las secciones normalmente.
     if (!("IntersectionObserver" in window)) {
         secciones.forEach((seccion) => {
             seccion.classList.add("visible");
