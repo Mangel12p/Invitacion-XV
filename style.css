@@ -1,9 +1,4 @@
 
-/* =========================================
-   XV AÑOS DE ALEJANDRA
-   Rosa empolvado, marfil y dorado suave
-========================================= */
-
 :root {
     --rosa: #d98bab;
     --rosa-oscuro: #b9698b;
@@ -122,6 +117,19 @@ a {
     border-color: rgba(217,139,171,.3);
 }
 
+.imagen-portada {
+    display: block;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--dorado);
+    margin: 0 auto 20px;
+    box-shadow: 0 8px 25px rgba(185,105,139,.2);
+    position: relative;
+    z-index: 3;
+}
+
 .marco-portada {
     position: absolute;
     width: min(78vw, 440px);
@@ -131,6 +139,7 @@ a {
     box-shadow:
         0 0 0 24px rgba(255,255,255,.16),
         0 0 0 25px rgba(185,154,98,.12);
+    pointer-events: none;
 }
 
 .portada-contenido {
@@ -194,31 +203,29 @@ a {
 }
 
 .boton-play {
-    width: 68px;
-    height: 68px;
+    width: 54px;
+    height: 54px;
     margin-top: 14px;
     border-radius: 50%;
     border: 1px solid rgba(185,154,98,.8);
-    background: rgba(255,255,255,.7);
+    background: rgba(255,255,255,.85);
     color: var(--rosa-oscuro);
     font-size: 2rem;
+    line-height: 1;
     cursor: pointer;
     box-shadow: 0 8px 30px rgba(156,92,119,.14);
-    transition:
-        transform .25s ease,
-        background .25s ease,
-        box-shadow .25s ease;
+    transition: transform .25s ease, background .25s ease;
+    position: relative;
+    z-index: 10;
 }
 
 .boton-play:hover {
     transform: scale(1.07);
     background: white;
-    box-shadow: 0 12px 35px rgba(156,92,119,.23);
 }
 
 .boton-play:focus-visible,
-.boton:focus-visible,
-.whatsapp:focus-visible {
+.boton:focus-visible {
     outline: 3px solid var(--dorado);
     outline-offset: 4px;
 }
@@ -244,10 +251,10 @@ a {
     opacity: 0;
     transform: scale(1.04);
     pointer-events: none;
-    display: none;
+    display: none !important;
 }
 
-/* DISCOS Y GLOBOS DECORATIVOS */
+/* DISCOS Y GLOBOS */
 
 .disco {
     width: 135px;
@@ -262,6 +269,7 @@ a {
         0 12px 32px rgba(70,45,55,.13);
     position: absolute;
     opacity: .38;
+    pointer-events: none;
 }
 
 .disco::after {
@@ -291,6 +299,7 @@ a {
     gap: 8px;
     transform: rotate(-13deg);
     opacity: .45;
+    pointer-events: none;
 }
 
 .globos span {
@@ -315,7 +324,7 @@ a {
     background: linear-gradient(135deg, #f6e8c9, #b99a62);
 }
 
-/* PRESENTACIÓN DE LA INVITACIÓN */
+/* PRESENTACIÓN */
 
 .hero {
     position: relative;
@@ -325,16 +334,8 @@ a {
     padding: 95px 22px 80px;
     overflow: hidden;
     background:
-        radial-gradient(
-            circle at 10% 15%,
-            rgba(217,139,171,.18) 0 1px,
-            transparent 2px
-        ),
-        radial-gradient(
-            circle at 85% 70%,
-            rgba(185,154,98,.2) 0 1px,
-            transparent 2px
-        ),
+        radial-gradient(circle at 10% 15%, rgba(217,139,171,.18) 0 1px, transparent 2px),
+        radial-gradient(circle at 85% 70%, rgba(185,154,98,.2) 0 1px, transparent 2px),
         linear-gradient(180deg, #fffaf7, #fff 48%, #fff8fb);
     background-size: 38px 38px, 48px 48px, auto;
 }
@@ -560,12 +561,17 @@ a {
     font-size: .8rem;
 }
 
-/* RECEPCIÓN Y UBICACIÓN */
+/* MISA Y RECEPCIÓN */
 
+.ceremonia,
 .recepcion {
     padding: 90px 22px;
     text-align: center;
     background: #fff;
+}
+
+.ceremonia {
+    background: linear-gradient(180deg, #fffaf7, #fff);
 }
 
 .icono-redondo {
@@ -580,6 +586,7 @@ a {
     font-size: 1.7rem;
 }
 
+.ceremonia h2,
 .recepcion h2,
 .dresscode h2 {
     font-family: var(--serif);
@@ -608,6 +615,7 @@ a {
 .boton {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 12px;
     margin-top: 28px;
     padding: 14px 27px;
@@ -617,6 +625,7 @@ a {
     text-decoration: none;
     font-size: .76rem;
     letter-spacing: .05em;
+    cursor: pointer;
     transition: transform .25s ease, background .25s ease;
 }
 
@@ -680,8 +689,6 @@ a {
     font-size: .9rem;
 }
 
-/* APARTADO DEL SOBRE DE REGALO */
-
 .detalle-regalo {
     max-width: 490px;
     margin: 38px auto 0;
@@ -726,7 +733,7 @@ a {
         0 8px 20px rgba(70,45,55,.12);
 }
 
-/* CONFIRMACIÓN DE ASISTENCIA */
+/* CONFIRMACIÓN */
 
 .confirmacion {
     padding: 85px 25px 90px;
@@ -759,7 +766,6 @@ a {
     border-radius: 2px;
     background: var(--rosa-oscuro);
     color: white;
-    cursor: pointer;
     box-shadow: 0 9px 25px rgba(185,105,139,.2);
 }
 
@@ -826,7 +832,7 @@ a {
     letter-spacing: .22em;
 }
 
-/* ANIMACIÓN AL DESPLAZARSE */
+/* ANIMACIONES */
 
 .revelar {
     opacity: 0;
@@ -839,11 +845,11 @@ a {
     transform: translateY(0);
 }
 
-/* ADAPTACIÓN PARA CELULARES */
+/* CELULARES */
 
 @media (max-width: 600px) {
     .portada {
-        padding-inline: 24px;
+        padding: 45px 24px 65px;
     }
 
     .portada::before {
@@ -852,6 +858,11 @@ a {
 
     .portada::after {
         inset: 18px;
+    }
+
+    .imagen-portada {
+        width: 125px;
+        height: 125px;
     }
 
     .sobrelinea {
@@ -926,7 +937,7 @@ a {
     }
 }
 
-/* RESPETAR PREFERENCIAS DE MOVIMIENTO */
+/* ACCESIBILIDAD */
 
 @media (prefers-reduced-motion: reduce) {
     *,
@@ -941,14 +952,4 @@ a {
         opacity: 1;
         transform: none;
     }
-}
-.imagen-portada {
-    display: block;
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 3px solid #b99a62;
-    margin: 0 auto 20px;
-    box-shadow: 0 8px 25px rgba(185, 105, 139, 0.2);
 }
