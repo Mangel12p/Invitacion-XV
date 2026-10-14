@@ -1,3 +1,4 @@
+
 // ========================================
 // INVITACIÓN XV AÑOS DE ALEJANDRA
 // ========================================
@@ -93,7 +94,7 @@ function confirmarAsistencia() {
         "¡Nos vemos para celebrar esta noche tan especial!";
 
     const url =
-        https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)};
+        `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
 
     window.open(url, "_blank", "noopener,noreferrer");
 }
@@ -129,4 +130,4 @@ document.addEventListener("DOMContentLoaded", () => {
         seccion.classList.add("revelar");
         observador.observe(seccion);
     });
-}); 
+});
