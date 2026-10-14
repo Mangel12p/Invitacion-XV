@@ -1,4 +1,180 @@
-<div class="icono-redondo" aria-hidden="true">✧</div>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#fff7fb">
+    <meta name="description" content="Acompáñanos a celebrar los XV años de Alejandra el 14 de noviembre de 2026.">
+    <title>Mis XV Años | Alejandra</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="brillo brillo-uno" aria-hidden="true"></div>
+    <div class="brillo brillo-dos" aria-hidden="true"></div>
+
+    <!-- PORTADA: FOTO NORMAL -->
+    <section id="inicio" class="portada">
+
+        <img
+            src="./Alejandraa.jpeg"
+            alt="Alejandra en sus XV años"
+            class="imagen-portada"
+        >
+
+        <div class="marco-portada" aria-hidden="true"></div>
+        <div class="disco disco1" aria-hidden="true"></div>
+
+        <div class="globos" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="portada-contenido">
+            <p class="sobrelinea">UNA CELEBRACIÓN MUY ESPECIAL</p>
+            <p class="pequeno">MIS XV AÑOS</p>
+
+            <h1>Alejandra</h1>
+
+            <div class="separador">
+                <span></span> ✦ <span></span>
+            </div>
+
+            <div class="numero">XV</div>
+
+            <p class="dale">Toca para abrir tu invitación</p>
+
+            <button
+                class="boton-play"
+                type="button"
+                onclick="entrar()"
+                aria-label="Abrir invitación"
+            >
+                ♡
+            </button>
+
+            <p class="mensaje-portada">
+                Una noche para soñar, bailar y recordar
+            </p>
+        </div>
+
+        <p class="portada-pie">14 · NOVIEMBRE · 2026</p>
+    </section>
+
+    <!-- INVITACIÓN -->
+    <main id="invitacion" class="oculto">
+
+        <!-- PRESENTACIÓN -->
+        <section class="hero">
+            <div class="ornamento superior" aria-hidden="true">
+                ✦　❀　✦
+            </div>
+
+            <p class="frase">
+                Con la bendición de Dios y de mis padres
+            </p>
+
+            <p class="invitacion-texto">
+                tengo el honor de invitarte a celebrar
+            </p>
+
+            <h2>mis XV años</h2>
+
+            <div class="nombre">Alejandra</div>
+
+            <div class="flor-linea" aria-hidden="true">❦</div>
+
+            <div class="edad">XV</div>
+
+            <p class="frase-secundaria">
+                Una nueva etapa comienza y me encantaría compartirla contigo.
+            </p>
+
+            <div class="fecha">
+                <strong>14</strong>
+
+                <span class="fecha-mes">
+                    SÁBADO<br>
+                    <b>NOVIEMBRE</b>
+                </span>
+
+                <span class="fecha-anio">2026</span>
+            </div>
+
+            <p class="te-esperamos">¡Te esperamos!</p>
+
+            <div class="ornamento inferior" aria-hidden="true">
+                ✧　❀　✧
+            </div>
+        </section>
+
+        <!-- FOTOGRAFÍA DE BEBÉ -->
+        <section class="foto-seccion">
+            <p class="etiqueta">UN RECUERDO PARA SIEMPRE</p>
+
+            <div class="foto-marco">
+                <div class="foto-borde">
+                    <img
+                        src="./Alejandra%20bebe.jpeg"
+                        alt="Alejandra cuando era bebé"
+                        loading="lazy"
+                    >
+                </div>
+            </div>
+
+            <p class="foto-pie">
+                Desde pequeña, llenando de amor cada momento ♡
+            </p>
+        </section>
+
+        <!-- CUENTA REGRESIVA -->
+        <section class="cuenta">
+            <p class="etiqueta">
+                LA CUENTA REGRESIVA HA COMENZADO
+            </p>
+
+            <h2>Un día inolvidable</h2>
+
+            <p class="faltan">Faltan...</p>
+
+            <div class="contador" aria-label="Cuenta regresiva para el evento">
+                <div>
+                    <span id="dias">00</span>
+                    <small>DÍAS</small>
+                </div>
+
+                <div>
+                    <span id="horas">00</span>
+                    <small>HORAS</small>
+                </div>
+
+                <div>
+                    <span id="minutos">00</span>
+                    <small>MINUTOS</small>
+                </div>
+
+                <div>
+                    <span id="segundos">00</span>
+                    <small>SEGUNDOS</small>
+                </div>
+            </div>
+
+            <p id="mensaje-contador" class="contador-pie">
+                Cada segundo nos acerca a esta gran noche.
+            </p>
+        </section>
+
+        <!-- RECEPCIÓN -->
+        <section class="recepcion">
+            <div class="icono-redondo" aria-hidden="true">✧</div>
 
             <p class="etiqueta">NOS VEMOS PARA CELEBRAR</p>
 
@@ -6,7 +182,7 @@
 
             <div class="linea-dorada"></div>
 
-            <p class="dato-principal">7:00 de la noche</p>
+            <p class="dato-principal">9:00 de la noche</p>
             <p class="dato-secundario">Salón de eventos</p>
 
             <a
@@ -109,4 +285,4 @@
 
     <script src="script.js"></script>
 </body>
-</html> 
+</html>
