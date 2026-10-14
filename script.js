@@ -17,10 +17,12 @@ function entrar() {
         invitacion.classList.remove("oculto");
     }
 
-    // La música comienza cuando la persona pulsa el botón.
+    // La música empieza después de pulsar el botón.
     if (musica) {
         musica.play().catch(() => {
-            console.info("El navegador puede bloquear la reproducción de audio.");
+            console.info(
+                "El navegador puede bloquear la reproducción de audio."
+            );
         });
     }
 
@@ -103,15 +105,14 @@ function confirmarAsistencia() {
     window.open(url, "_blank", "noopener,noreferrer");
 }
 
-// ANIMACIONES DE LAS SECCIONES AL DESPLAZARSE
+// ANIMACIONES AL DESPLAZARSE
 document.addEventListener("DOMContentLoaded", () => {
     const secciones = document.querySelectorAll(
-        ".foto-seccion, .cuenta, .ceremonia, .recepcion, " +
-        ".dresscode, .confirmacion, .final"
+        ".hero, .foto-seccion, .cuenta, .ceremonia, " +
+        ".recepcion, .dresscode, .confirmacion, .final"
     );
 
-    // Si el navegador no admite esta función,
-    // muestra todas las secciones normalmente.
+    // Alternativa para navegadores que no admiten IntersectionObserver.
     if (!("IntersectionObserver" in window)) {
         secciones.forEach((seccion) => {
             seccion.classList.add("visible");
