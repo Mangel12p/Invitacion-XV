@@ -4,201 +4,286 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#f8e8eb">
-    <title>Los XV años de Alejandra</title>
-    <link rel="stylesheet" href="./style.css">
+    <meta name="theme-color" content="#fff7fb">
+    <meta name="description" content="Acompáñanos a celebrar los XV años de Alejandra el 14 de noviembre de 2026.">
+    <title>Mis XV Años | Alejandra</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- PORTADA -->
-    <section id="portada" class="portada">
-        <div class="portada-contenido">
-            <p class="texto-superior">UNA NOCHE MÁGICA</p>
-            <div class="flor">✿</div>
-            <p class="mis-xv">MIS XV AÑOS</p>
-            <h1>Alejandra</h1>
-            <p class="frase-portada">Un sueño que comienza...</p>
+    <div class="brillo brillo-uno" aria-hidden="true"></div>
+    <div class="brillo brillo-dos" aria-hidden="true"></div>
 
-            <button class="boton-corazon" onclick="entrar()" aria-label="Abrir invitación">
+    <!-- PORTADA: FOTO NORMAL -->
+    <section id="inicio" class="portada">
+
+        <img
+            src="./Alejandraa.jpeg"
+            alt="Alejandra en sus XV años"
+            class="imagen-portada"
+        >
+
+        <div class="marco-portada" aria-hidden="true"></div>
+        <div class="disco disco1" aria-hidden="true"></div>
+
+        <div class="globos" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="portada-contenido">
+            <p class="sobrelinea">UNA CELEBRACIÓN MUY ESPECIAL</p>
+            <p class="pequeno">MIS XV AÑOS</p>
+
+            <h1>Alejandra</h1>
+
+            <div class="separador">
+                <span></span> ✦ <span></span>
+            </div>
+
+            <div class="numero">XV</div>
+
+            <p class="dale">Toca para abrir tu invitación</p>
+
+            <button
+                class="boton-play"
+                type="button"
+                onclick="entrar()"
+                aria-label="Abrir invitación"
+            >
                 ♡
             </button>
 
-            <p class="texto-abrir">Toca el corazón para abrir tu invitación</p>
-            <span class="fecha-portada">14 · 11 · 2026</span>
+            <p class="mensaje-portada">
+                Una noche para soñar, bailar y recordar
+            </p>
         </div>
+
+        <p class="portada-pie">14 · NOVIEMBRE · 2026</p>
     </section>
 
     <!-- INVITACIÓN -->
-    <main id="invitacion" class="invitacion oculto">
+    <main id="invitacion" class="oculto">
 
+        <!-- PRESENTACIÓN -->
         <section class="hero">
-            <p class="etiqueta">CON MUCHO AMOR</p>
-            <p class="frase">Hay momentos inolvidables que se atesoran en el corazón...</p>
-            <p class="invitacion-texto">
-                Y quiero compartir uno de los más especiales de mi vida contigo.
-            </p>
-
-            <div class="adorno">✧ ♡ ✧</div>
-            <h1 class="nombre">Alejandra</h1>
-            <p class="titulo-xv">MIS XV AÑOS</p>
-            <p class="fecha-grande">14 de noviembre de 2026</p>
-        </section>
-
-        <!-- FOTO PRINCIPAL -->
-        <section class="foto-seccion">
-            <p class="etiqueta">UN MOMENTO ESPECIAL</p>
-
-            <div class="foto-marco foto-principal">
-                <div class="foto-borde">
-                    <img
-                        src="./Alejandraa.jpeg"
-                        alt="Fotografía de Alejandra"
-                        loading="eager"
-                        onerror="this.closest('.foto-marco').classList.add('foto-error')"
-                    >
-                    <p class="mensaje-error">No se pudo cargar la fotografía. Revisa el nombre del archivo.</p>
-                </div>
+            <div class="ornamento superior" aria-hidden="true">
+                ✦　❀　✦
             </div>
 
-            <p class="foto-pie">Una noche para recordar por siempre ♡</p>
+            <p class="frase">
+                Con la bendición de Dios y de mis padres
+            </p>
+
+            <p class="invitacion-texto">
+                tengo el honor de invitarte a celebrar
+            </p>
+
+            <h2>mis XV años</h2>
+
+            <div class="nombre">Alejandra</div>
+
+            <div class="flor-linea" aria-hidden="true">❦</div>
+
+            <div class="edad">XV</div>
+
+            <p class="frase-secundaria">
+                Una nueva etapa comienza y me encantaría compartirla contigo.
+            </p>
+
+            <div class="fecha">
+                <strong>14</strong>
+
+                <span class="fecha-mes">
+                    SÁBADO<br>
+                    <b>NOVIEMBRE</b>
+                </span>
+
+                <span class="fecha-anio">2026</span>
+            </div>
+
+            <p class="te-esperamos">¡Te esperamos!</p>
+
+            <div class="ornamento inferior" aria-hidden="true">
+                ✧　❀　✧
+            </div>
         </section>
 
-        <!-- FOTO DE BEBÉ -->
-        <section class="foto-seccion recuerdo">
+        <!-- FOTOGRAFÍA DE BEBÉ -->
+        <section class="foto-seccion">
             <p class="etiqueta">UN RECUERDO PARA SIEMPRE</p>
 
-            <div class="foto-marco foto-bebe">
+            <div class="foto-marco">
                 <div class="foto-borde">
                     <img
                         src="./Alejandra%20bebe.jpeg"
                         alt="Alejandra cuando era bebé"
                         loading="lazy"
-                        onerror="this.closest('.foto-marco').classList.add('foto-error')"
                     >
-                    <p class="mensaje-error">No se pudo cargar la fotografía. Revisa el nombre del archivo.</p>
                 </div>
             </div>
 
-            <p class="foto-pie">Desde pequeña, llenando de amor cada momento ♡</p>
+            <p class="foto-pie">
+                Desde pequeña, llenando de amor cada momento ♡
+            </p>
         </section>
 
         <!-- CUENTA REGRESIVA -->
-        <section class="cuenta-seccion">
-            <p class="etiqueta">LA CUENTA REGRESIVA HA COMENZADO</p>
-            <h2>Falta poquito para celebrar</h2>
+        <section class="cuenta">
+            <p class="etiqueta">
+                LA CUENTA REGRESIVA HA COMENZADO
+            </p>
 
-            <div id="cuenta-regresiva" class="cuenta-regresiva">
-                <div class="tiempo">
+            <h2>Un día inolvidable</h2>
+
+            <p class="faltan">Faltan...</p>
+
+            <div class="contador" aria-label="Cuenta regresiva para el evento">
+                <div>
                     <span id="dias">00</span>
                     <small>DÍAS</small>
                 </div>
-                <div class="tiempo">
+
+                <div>
                     <span id="horas">00</span>
                     <small>HORAS</small>
                 </div>
-                <div class="tiempo">
+
+                <div>
                     <span id="minutos">00</span>
                     <small>MINUTOS</small>
                 </div>
-                <div class="tiempo">
+
+                <div>
                     <span id="segundos">00</span>
                     <small>SEGUNDOS</small>
                 </div>
             </div>
 
-            <p id="mensaje-cuenta" class="mensaje-cuenta">
-                ¡Estoy muy emocionada por compartir este día contigo!
-            </p>
-        </section>
-
-        <!-- CEREMONIA -->
-        <section class="evento">
-            <div class="icono-evento">✧</div>
-            <p class="etiqueta">PRIMER MOMENTO</p>
-            <h2>La misa</h2>
-            <p class="hora-evento">6:00 p. m. – 7:00 p. m.</p>
-            <p class="detalle-evento">
-                Iglesia de Fátima<br>
-                Colonia Santa Cruz
+            <p id="mensaje-contador" class="contador-pie">
+                Cada segundo nos acerca a esta gran noche.
             </p>
         </section>
 
         <!-- RECEPCIÓN -->
-        <section class="evento recepcion">
-            <div class="icono-evento">♡</div>
-            <p class="etiqueta">CELEBREMOS JUNTOS</p>
-            <h2>La recepción</h2>
-            <p class="hora-evento">7:00 p. m.</p>
-            <p class="detalle-evento">
-                ¡Acompáñame a celebrar esta noche tan especial!
-            </p>
+        <section class="recepcion">
+            <div class="icono-redondo" aria-hidden="true">✧</div>
+
+            <p class="etiqueta">NOS VEMOS PARA CELEBRAR</p>
+
+            <h2>Recepción</h2>
+
+            <div class="linea-dorada"></div>
+
+            <p class="dato-principal">9:00 de la noche</p>
+            <p class="dato-secundario">Salón de eventos</p>
 
             <a
                 class="boton"
-                href="https://share.google/tTaFnBI7NnUqDrf6"
+                href="https://share.google/tTaFnBI7Nn1UqDrf6"
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                Ver ubicación
+                Ver ubicación <span>↗</span>
             </a>
+
+            <p class="nota-lugar">
+                Abre el mapa para consultar cómo llegar.
+            </p>
         </section>
 
-        <!-- DETALLES -->
-        <section class="detalles">
-            <p class="etiqueta">DETALLES PARA ESE DÍA</p>
-            <h2>Quiero compartirlo contigo</h2>
+        <!-- CÓDIGO DE VESTIMENTA Y REGALO -->
+        <section class="dresscode">
+            <div class="adorno" aria-hidden="true">♡</div>
 
-            <div class="detalle-tarjeta">
-                <span class="detalle-icono">✧</span>
-                <h3>Vestimenta</h3>
-                <p>Formal</p>
+            <p class="etiqueta">EL TOQUE PERFECTO PARA LA NOCHE</p>
+
+            <h2>Código de vestimenta</h2>
+
+            <div class="vestido" aria-hidden="true">♕</div>
+
+            <h3>Formal</h3>
+
+            <p>
+                Te invitamos a vestir de manera formal para compartir
+                juntos esta noche tan especial.
+            </p>
+
+            <div class="detalle-regalo">
+                <div class="regalo-icono" aria-hidden="true">♡</div>
+
+                <h3>Un detalle de corazón</h3>
+
+                <p>
+                    Tu presencia hará este día inolvidable. Si deseas
+                    acompañarlo con un detalle, sugerimos atentamente
+                    un sobre de regalo.
+                </p>
             </div>
 
-            <div class="detalle-tarjeta">
-                <span class="detalle-icono">♡</span>
-                <h3>Sobre de regalo</h3>
-                <p>Tu cariño y buenos deseos son lo más importante para mí.</p>
-            </div>
+            <div class="disco-grande" aria-hidden="true"></div>
         </section>
 
-        <!-- CONFIRMACIÓN -->
+        <!-- CONFIRMAR ASISTENCIA -->
         <section class="confirmacion">
-            <p class="etiqueta">TU PRESENCIA ES ESPECIAL</p>
-            <h2>¿Me acompañas?</h2>
-            <p>Me hará muy feliz compartir este día contigo.</p>
+            <div class="sobre" aria-hidden="true">✉</div>
 
-            <a
-                class="boton boton-whatsapp"
-                href="https://wa.me/529615480094?text=Hola%2C%20confirmo%20mi%20asistencia%20a%20los%20XV%20a%C3%B1os%20de%20Alejandra."
-                target="_blank"
-                rel="noopener noreferrer"
+            <p class="etiqueta">TU PRESENCIA ES NUESTRO MEJOR REGALO</p>
+
+            <h2>¿Nos acompañas?</h2>
+
+            <p>
+                Será un honor contar contigo en esta noche tan especial.
+                Confirma tu asistencia por WhatsApp.
+            </p>
+
+            <button
+                class="boton whatsapp"
+                type="button"
+                onclick="confirmarAsistencia()"
             >
-                Confirmar por WhatsApp
-            </a>
+                Confirmar asistencia <span>♡</span>
+            </button>
+
+            <p class="confirmacion-pie">
+                ¡Gracias por formar parte de este recuerdo!
+            </p>
         </section>
 
-        <!-- DESPEDIDA -->
-        <footer class="footer">
-            <div class="adorno">✧ ♡ ✧</div>
-            <h2>¡Te espero!</h2>
-            <p>Con cariño, Alejandra</p>
-            <p class="footer-fecha">14 · 11 · 2026</p>
-        </footer>
+        <!-- MENSAJE FINAL -->
+        <section class="final">
+            <div class="final-ornamento" aria-hidden="true">✦</div>
 
+            <p class="etiqueta">CON TODO MI CARIÑO</p>
+
+            <h2>Te espero para celebrar</h2>
+
+            <p>
+                Gracias por acompañarme a vivir uno de los momentos
+                más especiales de mi vida.
+            </p>
+
+            <div class="corazon" aria-hidden="true">♡</div>
+
+            <h3>Alejandra</h3>
+
+            <p class="final-fecha">14 · 11 · 2026</p>
+        </section>
     </main>
 
-    <!-- MÚSICA -->
-    <audio id="musica" src="./musica.mp3" loop preload="auto"></audio>
+    <!-- MÚSICA DE FONDO -->
+    <audio id="musica" loop preload="none">
+        <source src="./musica.mp3" type="audio/mpeg">
+    </audio>
 
-    <button
-        id="boton-musica"
-        class="boton-musica oculto"
-        onclick="alternarMusica()"
-        aria-label="Reproducir o pausar música"
-        title="Música"
-    >♫</button>
-
-    <script src="./script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
 
